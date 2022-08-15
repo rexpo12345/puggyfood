@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<script src="js/checktoken.js"></script>
+<link rel="stylesheet" href="css/signup.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="icon" href="Image/puggysmurik.gif">
+<title>  Puggy restaurant</title>
+
+</head>
+<style>
+	
+	.fontpara{
+		font-family: "Agency FB";
+		font-size: 30px;
+		color: black;
+	}
+
+</style>
+
+<!-- retrive token & userdetails-->
+<script>
+
+	var firstName,lastName,userEmail,userAddress,userPassword,userPhone,userGender,userImage,userName,token;
+	token = sessionStorage.getItem("token");
+
+</script>
+
+ <!-- Navigation Bar -->
+ <nav class="navbar sticky-top navbar-expand-lg navbar-light bgnavcolour border border-dark">
+	<a class="navbar-brand" href="index.html"><img src="Image/cdevlogo.png" style="width: 150px; height: 100px;" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link text" href="index.html" style="color: white">HOME <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link text" href="aboutus.html" style="color: white">ABOUT US</a>
+		</li>
+		<div id="contactus">
+		<li class="nav-item" >
+		  <a class="nav-link text" href="contactus.html" style="color: white">CONTACT US</a>
+		</li>
+		</div>
+	  </ul>
+		<div id="loginmenu">
+		  <a class="nav-link text" href="Login.html" style="color: white" >LOGIN/SIGNUP</a>
+		</div>
+		<div id="logoutMenu" >
+		  <a class="nav-link text" href="userProfile.html" style="color: white" ><div id="navUser"></div></a>
+		</div>
+		
+	</div>
+  </nav>
+<body style="background-color: #FBE2E2">
+	<header class="w3-display-container w3-content " style="max-width:600px;min-width:400px" id="home">
+  <img class="w3-image" src="Image/cdevlogo.png" alt="puggy" width="1600" height="800">
+</header>
+  <div class="container">
+  <div class="row">
+    <div class="col-8">
+	<h1 style="font-family: 'Agency FB';font-weight: 1000;font-size: 50px;"><u class="font-weight-bold font">WHO ARE WE ?</u></h1>
+	<p class="fontpara">We are a group of puggy's that gets restaurant
+		<br>
+		approver before listing on this site and allowing
+		<br>
+		online user to view restaurant review's.</p>
+	</div>
+    <div class="col-4">
+	
+		<img src="Image/puggyestaco.png" width="100%" alt="">
+		
+	</div>
+  </div>
+	  <br>
+  <div class="row">
+    <div class="col-4">
+		<img src="Image/puggywithchicken.png" width="100%" alt="">
+	</div>
+    <div class="col-8 text-right">
+	  <h1 style="font-family: 'Agency FB';font-weight: 1000;font-size: 50px;"><u class="font-weight-bold">WHAT DOES THIS SITE DO ?</u></h1>
+	  <p class="fontpara">We allow user to create an account on our website
+		<br>
+		for free, They will be able to give reviews to 
+		<br>
+		restaurant they been before.</p>
+	
+	</div>
+  </div>
+	  <div class="row">
+    <div class="col-8">
+		<h1 style="font-family: 'Agency FB';font-weight: 1000;font-size: 50px;"><u class="font-weight-bold">HOW DID WE PUBLISH THIS</u></h1>
+		<p class="fontpara">
+		In 2021, We did this allow more users to have 
+		<br>
+		understanding of food and this site will brings 
+		<br>	
+		users to have a greater taste in life.</p>
+	</div>
+    <div class="col-4">
+	  
+		<img src="Image/sticker.png" width="100%" alt="">
+	
+	</div>
+  </div>
+	</div>
+	 
+</body>
+<!-- footer -->
+<div class="footer container-fluid" style="background-color: #D0B8AC;  margin-top: 10%; margin-right: 0px;" >
+
+	<div class=" float-left" > &copy; COPYRIGHT PUGGYFOOD TEMASERKPOLY - 2021</div>
+		  <span style="background-color: #D0B8AC;">
+	<div class="float-right" >Follow us @PuggySocial 
+	  <img src="Image/icons8-twitter-64.png" class="test" width="50px" height="50px" alt=""><img src="Image/icons8-instagram-200.png" class="test" width="50px;" height="50px;" alt=""><img src="Image/icons8-facebook-128.png" class="test" width="50px" height="50px" alt="">
+	  </div>	</span>
+	  
+  </div>
+</html>

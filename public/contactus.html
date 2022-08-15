@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<title>contactus</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/contactus.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/signup.css">
+<link rel="icon" href="Image/puggysmurik.gif">
+<title>  Puggy restaurant</title>
+<script src="js/checktoken.js"></script>
+<style>
+	
+	.modal-title {
+		font-family: "Agency FB";
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 32px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+	}	
+	
+	.backgroudncolor {
+		background-color: #D0B8AC;
+	}
+	.text01 {
+		font-size: 30px;
+		font-weight: bold;
+		font-family: "Agency FB";
+		margin-top: 2px;
+		padding: 20px;
+	}
+
+</style>
+
+<!-- retrive token & userdetails-->
+<script>
+
+	var firstName,lastName,userEmail,userAddress,userPassword,userPhone,userGender,userImage,userName,token;
+	token = sessionStorage.getItem("token");
+
+</script>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bgnavcolour border border-dark">
+	<a class="navbar-brand" href="index.html"><img src="Image/cdevlogo.png" style="width: 150px; height: 100px;" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link text" href="index.html" style="color: white">HOME <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link text" href="aboutus.html" style="color: white">ABOUT US</a>
+		</li>
+		<div id="contactus">
+		<li class="nav-item" >
+		  <a class="nav-link text" href="contactus.html" style="color: white">CONTACT US</a>
+		</li>
+		</div>
+	  </ul>
+		<div id="loginmenu">
+		  <a class="nav-link text" href="Login.html" style="color: white" >LOGIN/SIGNUP</a>
+		</div>
+		<div id="logoutMenu" >
+		  <a class="nav-link text" href="userProfile.html" style="color: white" ><div id="navUser"></div></a>
+		</div>
+		
+	</div>
+  </nav>
+<body style="background-color: #FBE2E2">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5" style="background-color: #FBE2E2">
+
+          <form class="card-body cardbody-color mt-4">
+
+            <div class="text-left contactusform">
+              CONTACT US
+            </div>
+			<div class="form-row p-2">
+				<div class="col" >
+				  <label for="username" class="signuptext">Username:</label>
+				  <div id="contactUs"><input type="text" id="userName" class="form-control inputboxshadow border border-dark" disabled ></div>	
+				</div>
+			  </div>
+         		<div class="form-row p-2">
+				<div class="col">
+				  <label for="username" class="signuptext">Email:</label>	
+				  <div id="contactusemail"><input type="text" id="userEmail" class="form-control inputboxshadow border border-dark" disabled></div>
+				</div>
+			  </div>
+			  <div class="form-row p-2">
+				<div class="col" >
+				  <label for="username" class="signuptext">Subject:</label>	
+				  <input type="text" id="subject" class="form-control inputboxshadow border border-dark">
+				</div>
+			  </div>
+			 <div class="form-row p-2">
+				<div class="col">
+				  <label for="exampleFormControlTextarea1" class="signuptext">Message:</label>
+  					<textarea class="form-control inputboxshadow border border-dark" id="messageText" rows="6"></textarea>
+				</div>
+			  </div>
+			  <label for="" class="signuptext characters float-right" >1000 Characters</label>
+			  <br>
+			  <br>
+            <div class="text-center"><button type="button" class="btn btn-color px-5 mb-4 w-50 signupbtn border border-dark" onclick="sendEmail();">SEND</button></div>
+       	<!-- Modal for contactus -->
+		<div class="modal fade" id="contactusmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content border-0  backgroudncolor">
+			  <div class="modal-header border-0  backgroudncolor">
+
+				<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+				  X
+				</button>
+			  </div>
+
+			  <div class="modal-body-centered text-center">
+				  <div class="ml-4 mr-4 text01" style="background-color: white;  margin-bottom: 20px;">
+				<div>Your message has been send successfully. We will reply you in 3-5 working days</div>
+				 <img src="Image/puggywithchicken.png" width="200px;" alt="">
+			  </div>
+				  <div class="text-center">
+						<button type="submit" class="btn btn-color px-5 mb-4 w-50 signupbtn border border-dark" data-dismiss="modal">CANCEL</button>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>	
+</body>
+<!-- footer -->
+<div class="footer container-fluid" style="background-color: #D0B8AC;  margin-top: 10%; margin-right: 0px;" >
+
+	<div class=" float-left" > &copy; COPYRIGHT PUGGYFOOD TEMASERKPOLY - 2021</div>
+		  <span style="background-color: #D0B8AC;">
+	<div class="float-right" >Follow us @PuggySocial 
+	  <img src="Image/icons8-twitter-64.png" class="test" width="50px" height="50px" alt=""><img src="Image/icons8-instagram-200.png" class="test" width="50px;" height="50px;" alt=""><img src="Image/icons8-facebook-128.png" class="test" width="50px" height="50px" alt="">
+	  </div>	
+	</span>  
+  </div>
+
+  <script src="js/email.js"></script>
+</html>

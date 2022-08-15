@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="Image/puggysmurik.gif">
+<title>  Puggy restaurant</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/login.js"></script>
+<script src="js/app.js"></script>
+<script src="js/checktoken.js"></script>
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/index.css">
+<style>
+	
+	.headerformodal {
+		font-family: "Agency FB";
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 32px;
+		color: #FFFFFF;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+		text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+	}	
+	
+	.backgroudncolor {
+		background-color: #D0B8AC;
+	}
+	.emailtext{
+	font-family: "Agency FB";
+	font-size: 20px;
+	margin-bottom: 2px;
+	color: #FFFFFF;
+	text-decoration: bold;
+	text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+	.text01 {
+		font-size: 25px;
+		font-weight: bold;
+		font-family: "Agency FB";
+		margin-top: 2px;
+		padding: 10px;
+	}
+
+</style>
+ <!-- Navigation Bar -->
+ <nav class="navbar sticky-top navbar-expand-lg navbar-light bgnavcolour border border-dark">
+	<a class="navbar-brand" href="index.html"><img src="Image/cdevlogo.png" style="width: 150px; height: 100px;" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link text" href="index.html" style="color: white">HOME <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link text" href="aboutus.html" style="color: white">ABOUT US</a>
+		</li>
+		<div id="contactus">
+		<li class="nav-item" >
+		  <a class="nav-link text" href="contactus.html" style="color: white">CONTACT US</a>
+		</li>
+		</div>
+	  </ul>
+		<div id="loginmenu">
+		  <a class="nav-link text" href="Login.html" style="color: white" >LOGIN/SIGNUP</a>
+		</div>
+		<div id="logoutMenu" >
+		  <a class="nav-link text" href="userProfile.html" style="color: white" ><div id="navUser"></div></a>
+		</div>
+		
+	</div>
+  </nav>
+<body  style="background-color: #FBE2E2;">
+<div class="container ">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5" style="background-color: #FBE2E2;">
+
+          <form class="card-body cardbody-color p-lg-5 mt-0">
+
+            <div class="text-center">
+              <img src="Image/puggysmurik.gif" class=" border-0 img-fluid profile-image-pic img-thumbnail rounded-circle my-3 "
+                width="200px" alt="profile">
+            </div>
+
+            <div class="mb-3">
+				
+				<label for="username" class="logintext">Username</label>
+              <input type="text" class="form-control inputboxshadow border border-dark" id="userNamelogin" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+				<label for="username" class="logintext">Password</label>
+              <input type="password" data-toggle="password" class="form-control inputboxshadow border border-dark" id="userPasswordlogin" >
+            </div>
+			  <div class="mb-3">
+				  <a class="signuptext" style="font-size: 25px;" href="#" role="button" data-toggle="modal" data-target="#forgetpassword" >Forget password</a>
+             
+            </div> 
+            <div class="text-center">
+				<button type="button" onclick="loginMe();" class="btn btn-color px-5 mb-2 w-50 loginbtn border border-dark">LOGIN
+				</button>
+			  </div>
+            <div id="emailHelp" class="form-text text-center mt-2 signuptext font-weight-bold"><a href="signup.html">Dont have an account.
+             Click here to SignUp</a>
+				
+            </div>
+
+			 <!--modal for Incorrect details-->
+	<div class="modal fade bd-example-modal-lg" id="incorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+		  <div class="modal-content border-0  backgroudncolor">
+			<div class="modal-header border-0  backgroudncolor">
+			  <h5 class="headerformodal" id="test"> SORRY INCORRECT ACCOUNT DETAILS
+			  <button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+				X
+			  </button>
+			  </h5>
+			</div>
+  
+			<div class="modal-body-centered text-center">
+				<div class="ml-5 mr-5 textdesc" style="background-color: white; padding: 20px; margin-bottom: 20px;">
+			  <div class="text-left text01">PLEASE TRY AGAIN</div>	  
+			</div>
+			   <div class="text-center">
+			  <button type="button" class="btn btn-color px-5 mb-4 w-40 loginbtn border border-dark" data-toggle="modal" data-dismiss="modal" aria-label="Close">RETURN</button>
+			  </div>
+			  </div>
+		  </div>
+		</div>
+	  </div> 
+			 <!--modal for forget password-->
+	<div class="modal fade bd-example-modal-lg" id="forgetpassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+	  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+		<div class="modal-content border-0  backgroudncolor">
+		  <div class="modal-header border-0  backgroudncolor">
+			<h5 class="headerformodal" id="exampleModalLongTitle"> Forgotten your password?
+			<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+			  X
+			</button>
+			</h5>
+		  </div>
+
+		  <div class="modal-body-centered text-center">
+			  <div class="ml-5 mr-5 textdesc" style="background-color: white; padding: 20px; margin-bottom: 20px;">
+			<div class="text-left text01">Enter your email below and we will send you a link for you to access it</div>
+			<label for="username" class="emailtext float-left">Email:</label>	
+			<input type="text" id="userEmail" class="form-control inputboxshadow border border-dark" >	  
+		  </div>
+			 <div class="text-center">
+			<button type="button" onclick="sendForgottenpassword();" class="btn btn-color px-5 mb-4 w-40 loginbtn border border-dark" data-toggle="modal"  aria-label="Close">SUBMIT</button>
+			</div>
+			</div>
+		</div>
+	  </div>
+	</div> 
+
+			  <!--modal for notification-->
+	
+	<div class="modal fade bd-example-modal-lg" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+		  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-content border-0  backgroudncolor">
+			  <div class="modal-header border-0  backgroudncolor">
+				<h5 class="headerformodal" id=""> Forgotten your password?
+				<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+				  X
+				</button>
+				</h5>
+			  </div>
+
+			  <div class="modal-body-centered text-center">
+				  <div class="ml-5 mr-5 textdesc" style="background-color: #FBE2E2; padding: 20px; margin-bottom: 20px;">
+				<div class="text-center text01">A Rest password link has been send to your email</div>
+				<img src="Image/sendingemail.png" width="200px;" alt=""> 
+			  </div>
+				 <div class="text-center">
+				<button type="submit" class="btn btn-color px-5 mb-4 w-40 loginbtn border border-dark" data-dismiss="modal">Closed</button>
+				</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+ 
+</body>
+<!-- footer -->
+<div class="footer container-fluid" style="background-color: #D0B8AC;  margin-top: 10%; margin-right: 0px;" >
+
+	<div class=" float-left" > &copy; COPYRIGHT PUGGYFOOD TEMASERKPOLY - 2021</div>
+		  <span style="background-color: #D0B8AC;">
+	<div class="float-right" >Follow us @PuggySocial 
+	  <img src="Image/icons8-twitter-64.png" class="test" width="50px" height="50px" alt=""><img src="Image/icons8-instagram-200.png" class="test" width="50px;" height="50px;" alt=""><img src="Image/icons8-facebook-128.png" class="test" width="50px" height="50px" alt="">
+	  </div>	</span>
+	  
+  </div>
+</html>

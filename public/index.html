@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/signup.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/restaurant.js"></script>
+<script src="js/app.js"></script>
+<script src="js/checktoken.js"></script>
+<script src="js/review.js"></script>
+<link rel="icon" href="Image/puggysmurik.gif">
+<title>  Puggy restaurant</title>
+</head>
+<!-- retrive token & userdetails-->
+<script>
+
+	var firstName,lastName,userEmail,userAddress,userPassword,userPhone,userGender,userImage,userName,token;
+	token = sessionStorage.getItem("token");
+  commentid = sessionStorage.removeItem("fetchcommentid");
+</script>
+
+
+<!-- Navigation Bar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bgnavcolour border border-dark">
+	<a class="navbar-brand" href="index.html"><img src="Image/cdevlogo.png" style="width: 150px; height: 100px;" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link text" href="index.html" style="color: white">HOME <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link text" href="aboutus.html" style="color: white">ABOUT US</a>
+		</li>
+		<div id="contactus">
+		<li class="nav-item" >
+		  <a class="nav-link text" href="contactus.html" style="color: white">CONTACT US</a>
+		</li>
+		</div>
+	  </ul>
+		<div id="loginmenu">
+		  <a class="nav-link text" href="Login.html" style="color: white" >LOGIN/SIGNUP</a>
+		</div>
+		<div id="logoutMenu" >
+		  <a class="nav-link text" href="userProfile.html" style="color: white" ><div id="navUser"></div></a>
+		</div>
+		
+	</div>
+  </nav>
+<body  onload="getRestaurantData()"  style="background-color: #FBE2E2;">
+ 
+<div class="row">
+  <div class="side">
+    <form id="">
+    <div class="row filter boxshadow" style="margin-right: 30px;">
+                <div class="col-10 box-radius">
+					<h2 class="text-center text-title">Your Taste</h2>
+                  <h2 class="text-left pt-3 text-bold">Location</h2>
+                  <div class="form-check pb-3 ">
+                    <input class="form-check-input" type="checkbox" value="north" id="north" onclick="filterLocation(this);">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      North
+                    </label>
+                  </div>
+                  <div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="South" id="south"  onclick="filterLocation(this)">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      South
+                    </label>
+                  </div>
+                  <div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="East" id="east"  onclick="filterLocation(this)">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      East
+                    </label>
+                  </div>
+                  <div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="West" id="west"  onclick="filterLocation(this)">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      West
+                    </label>
+                  </div>
+				<h2 class="text-left pt-3 text-bold">Category</h2>
+					<div class="form-check pb-3 ">
+                    <input class="form-check-input" type="checkbox" value="Japanese Food" id="japanesefood" onclick="filterCategories(this)">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Japanese food
+                    </label>
+                  </div>
+                  <div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="Chinese Food" id="chinesefood" onclick="filterCategories(this)">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Chinese food
+                    </label>
+                  </div>
+                  <div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="Halal food" id="halalfood" onclick="filterCategories(this)">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Halal food
+                    </label>
+                  </div>
+                  <div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="Fine Dining" id="finedining" onclick="filterCategories(this)">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Fine dining
+                    </label>
+                  </div>
+					<div class="form-check pb-3">
+                    <input class="form-check-input" type="checkbox" value="Fast Food" id="fastfood" onclick="filterCategories(this)">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Fast food
+                    </label>
+                  </div>
+                  <h2 class="text-left text-bold mb-1 ">Ratings:</h2>
+                  <img src="Image/starrating.png" class="pop" value="1" onclick="filterStars(this)" onmouseover="rateIt(this)" />
+                  <img src="Image/starrating.png" class="pop" value="2"  onclick="filterStars(this)" onmouseover="rateIt(this)" />
+                  <img src="Image/starrating.png" class="pop" value="3"  onclick="filterStars(this)" onmouseover="rateIt(this)" />
+                  <img src="Image/starrating.png" class="pop" value="4"  onclick="filterStars(this)" onmouseover="rateIt(this)" />
+                  <img src="Image/starrating.png" class="pop" value="5"  onclick="filterStars(this)" onmouseover="rateIt(this)" />
+                  <h2 class="text-left text-bold mb-1">Prices:</h2>
+                  <img src="Image/coin.png" class="coin" value="1" onclick="filterPrices(this)" onmouseover="priceIt(this)" />
+                  <img src="Image/coin.png" class="coin" value="2" onclick="filterPrices(this)" onmouseover="priceIt(this)" />
+                  <img src="Image/coin.png" class="coin" value="3" onclick="filterPrices(this)"onmouseover="priceIt(this)" />
+                  <img src="Image/coin.png" class="coin" value="4" onclick="filterPrices(this)" onmouseover="priceIt(this)" />
+                  <img src="Image/coin.png" class="coin" value="5" onclick="filterPrices(this)" onmouseover="priceIt(this)" />
+                </div>
+      		</div>
+        </form>
+  </div>
+  <div class="main" >
+    <!-- <form id="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Restaurant" id="userSearch" oninput="searchMe()" style = "top:200px;">
+      </div>
+    </form> -->
+<form class="searchbox sbx-custom text-center">
+  <div role="search" class="sbx-custom__wrapper">
+    <input type="search" name="search" placeholder="Search restaurant name" id="userSearch"  oninput="searchMe()" required="required" class="sbx-custom__input">
+    <button type="button" title="Submit your search query." class="sbx-custom__submit" onclick="searchMe();">
+      <img src="Image/icons8-bone-128.png" width="70%;" alt="">
+    </button>
+  </div>
+</form>
+<hr>
+ <!-- This is the heading showing how many restaurant are there -->
+<p>
+<h3 id="summary"></h3>
+</p>
+<div class="row " id="restaurantsTable"></div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+<!-- Footer -->
+
+<div class="footer container-fluid" style="background-color: #D0B8AC;  margin-top: 10%; margin-right: 0px;" >
+
+  <div class=" float-left" > &copy; COPYRIGHT PUGGYFOOD TEMASERKPOLY - 2021</div>
+		<span style="background-color: #D0B8AC;">
+  <div class="float-right" >Follow us @PuggySocial 
+	<img src="Image/icons8-twitter-64.png" class="test" width="50px" height="50px" alt=""><img src="Image/icons8-instagram-200.png" class="test" width="50px;" height="50px;" alt=""><img src="Image/icons8-facebook-128.png" class="test" width="50px" height="50px" alt="">
+	</div>	</span>
+	
+</div>
+
+</html>
+
+

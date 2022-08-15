@@ -1,0 +1,499 @@
+<!doctype html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/signup.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/checktoken.js"></script>
+<script src="js/review.js"></script>
+<link rel="stylesheet" href="css/userprofile.css">
+<script src="js/app.js"></script>
+<script src="js/restaurantinfo.js"></script>
+<html>
+<head>
+<link rel="icon" href="Image/puggysmurik.gif">
+<meta charset="utf-8">
+<title>  Puggy restaurant</title>
+</head>
+<style>
+
+* {
+  box-sizing: border-box;
+}
+	
+body {
+ font-family: "Agency FB";		
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  padding: 10px;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+  padding: 20px;
+}
+
+
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+/*text for restaurant details */
+	.textdesc {
+		font-size: 40px;
+		font-weight: 1000;
+	}
+	.card-title{
+		font-weight: bold;
+		font-size: 35px;
+	}
+   .boxshadow {
+		-webkit-box-shadow: 7px 5px 5px -2px rgba(0,0,0,0.55); 
+		box-shadow: 7px 5px 5px -2px rgba(0,0,0,0.55);
+		border: #000000 solid;
+		padding: 0px;
+	}
+	
+	.card-text{
+		font-size: 25px;
+		font-weight: 300px;
+	}
+	
+	.modal-title {
+		font-family: "Agency FB";
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 32px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+	}	
+	
+	.backgroudncolor {
+		background-color: #D0B8AC;
+	}
+	.text01 {
+		font-size: 30px;
+		font-weight: bold;
+		font-family: "Agency FB";
+		margin-top: 2px;
+		padding: 20px;
+	}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1000px) {
+  .row, .navbar {   
+    flex-direction: column;
+	
+  }
+	.side {
+		margin:auto;
+
+	}
+	.comment {
+		 right:0;
+	}
+}
+	.modal-title {
+		font-family: "Agency FB";
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 32px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+	}	
+	
+	.backgroudncolor {
+		background-color: #D0B8AC;
+	}
+	.textforreviews{
+		font-family: "Agency FB";
+		font-size: 20px;
+		padding-top: 30px;
+	}
+
+</style>
+
+<!-- retrive token & userdetails-->
+<script>
+
+	var firstName,lastName,userEmail,userAddress,userPassword,userPhone,userGender,userImage,userName,token,commentid;
+	
+	token = sessionStorage.getItem("token");
+	commentid = sessionStorage.getItem("fetchcommentid");
+
+</script>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bgnavcolour border border-dark">
+	<a class="navbar-brand" href="index.html"><img src="Image/cdevlogo.png" style="width: 150px; height: 100px;" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link text" href="index.html" style="color: white">HOME <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link text" href="aboutus.html" style="color: white">ABOUT US</a>
+		</li>
+		<div id="contactus">
+		<li class="nav-item" >
+		  <a class="nav-link text" href="contactus.html" style="color: white">CONTACT US</a>
+		</li>
+		</div>
+	  </ul>
+		<div id="loginmenu">
+		  <a class="nav-link text" href="Login.html" style="color: white" >LOGIN/SIGNUP</a>
+		</div>
+		<div id="logoutMenu" >
+		  <a class="nav-link text" href="userProfile.html" style="color: white" ><div id="navUser"></div></a>
+		</div>
+		
+	</div>
+  </nav>
+<body style="background-color:#FBE2E2;" onload="showRestaurantDetails(),commentRestaurant();">
+	<div class="container-fluid">
+	<div class="row">
+  <div class="main">
+    <div class="card w-60 ml-5 border border-dark boxshadow">
+  <img class="card-img-top border border-dark " width="100%" height="500px;"  id="restaurantImg" src=""  alt="Card image cap">
+  <div class="card-body">
+	 <h4 class="card-title text-center" id="restaurantName">Restaurant Name</h4>
+    <h5 class="card-title"><u>Description</u></h5>
+   <div class="card-text textdesc" id="testDesc"><p class="card-text textdesc">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></div>
+<p class="card-text"><div id="rating"></div>
+		  <img src="Image/star.png" width="25px;" alt="" value="1">
+		  <img src="Image/star.png" width="25px;" alt="" value="2">
+		  <img src="Image/star.png" width="25px;" alt="" value="3">
+		  <img src="Image/star.png" width="25px;" alt="" value="4">
+		  <img src="Image/star.png" width="25px;" alt="" value="5">
+	  </p>
+	  <p class="card-text"><div id="price"></div>
+		  <img src="Image/dollar.png" width="25px;" alt="" value="1">
+		  <img src="Image/dollar.png" width="25px;" alt="" value="2">
+		  <img src="Image/dollar.png" width="25px;" alt="" value="3">
+		  <img src="Image/dollar.png" width="25px;" alt="" value="4">
+		  <img src="Image/dollar.png" width="25px;" alt="" value="5">
+	  </p>
+	  <p class="card-text"><div id="noreview"></div>
+
+	  <button type="button" class="btn btn-color px-5 mb-2 w-40 loginbtn border border-dark float-right" data-toggle="modal" data-target="#newReviewModal" id="allowreview" onclick=" resetvalue();">Write a review</button>
+	  <button type="button" class="btn btn-color px-5 mb-2 w-40 loginbtn border border-dark float-right" data-toggle="modal" data-target="#notlogin" id="dontallow" >Write a review</button>
+	</p>
+<!--	  modal if login change taget to #notlogin-->
+  </div>
+</div>
+<br>
+<div id="commentstable"></div>
+<!-- <div class="card mb-3 w-60 ml-5 border border-dark boxshadow">
+  <div class="card-body">
+    <div class="card-text">
+	<div class="container">
+		<div class="row">
+		<div class="col-2">
+	<img src="Image/puggysmurik.gif" class=" border-0 rounded-circle " width="150px" alt="profile">
+			</div>
+		<div class="col-6 align-middle mt-4 ">
+		<p class="mb-0 textdesc comment" id="userName">Username name</p>
+		<p class="mt-0 comment">1 likes on the Review</p>
+		
+		</div>
+		<div class="col-4 text-right comment">
+			<p>Published on:19/03/2021 18:20 <img src="Image/heart.png" alt="" width="30px" class="align-top" ></p>
+			<p>Rating:
+			  <img src="Image/star.png" width="25px;" alt="" value="1">
+			  <img src="Image/star.png" width="25px;" alt="" value="2">
+			  <img src="Image/star.png" width="25px;" alt="" value="3">
+			  <img src="Image/star.png" width="25px;" alt="" value="4">
+			  <img src="Image/star.png" width="25px;" alt="" value="5">
+			</p>
+			<p>Price:
+			  <img src="Image/dollar.png" width="25px;" alt="" value="1">
+			  <img src="Image/dollar.png" width="25px;" alt="" value="2">
+			  <img src="Image/dollar.png" width="25px;" alt="" value="3">
+			  <img src="Image/dollar.png" width="25px;" alt="" value="4">
+			  <img src="Image/dollar.png" width="25px;" alt="" value="5">			
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<textarea class="form-control inputboxshadow border border-dark card-text mt-3" id="exampleFormControlTextarea1" rows="3" disabled>text value</textarea>
+	</div>
+	</div>
+	 </div>
+  </div>
+</div> -->
+  </div>
+<!--restaurant information-->
+  <div class="side">
+
+	
+  <div class="card border border-dark boxshadow mr-2" style="width: 30rem; padding: 5px;">
+  <h5 class="card-title text-center font-weight-bold"><u>Information</u></h5>
+	  <iframe class="card-img-top border border-dark" alt="Card image cap" id="map" src="" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  
+  <div class="card-body">
+	  <div class="container">
+	  <div class="row ">
+		<div class="col-md-12">
+			<img src="Image/pin.png" width="50px;"  alt="" style="float: left;" ><div class="textdesc" id="address"></div>
+		</div>
+	  </div>
+	  
+	  <div class="row ">
+		<div class="col-md-12">
+			<img src="Image/pin.png" width="50px;"  alt="" style="float: left;" ><div class="textdesc" id="location"></div>
+		</div>
+	  </div>
+	  
+	  <div class="row">
+		<div class="col-md-12">
+			<img src="Image/world-wide-web.png" width="50px;" style="float:left" alt=""><a href="" style="color: blue"><div class="textdesc" id="website"></div></a></div>
+		</div>
+	  </div>
+	</div>
+	  <div class="row">
+		 <div class="col-lg-12 textdesc"><img src="Image/telephone.png" width="50px;" style="float: left; padding-right: 10px;" alt=""><div id="phone"></div></div>
+		 </div>
+		 <div class="row">
+		 <div class="col-lg-12 textdesc"><img src="Image/gmail.png" width="50px;" style="float: left; padding-right: 10px;" alt=""><div id="email"></div></div>
+	  </div>
+	  <br>
+    <div class="card-text textdesc" id="restname"></div>
+	<br>
+		<p><img src="Image/icons8-instagram-200.png" width="50px;" alt="">
+		<img src="Image/icons8-facebook-128.png" width="50px;" alt="">
+		<img src="Image/icons8-twitter-64.png" width="50px;" alt="">
+	 </p>
+	  <br>
+	  <p class="text-center">
+		  <button type="submit" class="btn btn-color px-5 mb-2 w-60 loginbtn border border-dark" data-toggle="modal" data-target="#exampleModalCenter">Operating hours
+				</button>
+	  </p>
+
+	<!-- Modal for operatinghours -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content border-0  backgroudncolor">
+		  <div class="modal-header border-0  backgroudncolor">
+			<h5 class="modal-title" id="exampleModalLongTitle">OPERATING HOURS
+			<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+			  X
+			</button>
+			</h5>
+		  </div>
+
+		  <div class="modal-body-centered text-center">
+			  <div class="ml-5 mr-5 textdesc" style="background-color: white; padding: 10px; margin-bottom: 20px;">
+			<div id="restauranthours"> </div>
+			 
+		  </div>
+			</div>
+		</div>
+	  </div>
+	</div>
+	 <!-- Modal for review if not login -->
+		<div class="modal fade bd-example-modal-lg" id="notlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+		  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-content border-0  backgroudncolor">
+			  <div class="modal-header border-0  backgroudncolor">
+
+				<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+				  X
+				</button>
+			  </div>
+
+			  <div class="modal-body-centered text-center">
+				  <div class="ml-4 mr-4 text01" style="background-color: white;  margin-bottom: 20px;">
+				<div>You have to create an account to give an review to this restaurant.</div>
+				 <img src="Image/cdevlogo.png" width="300px;" alt="">
+			  </div>
+				  <div class="text-center">
+						<button type="button" onclick="window.location.replace('/signup.html'); " class="btn btn-color px-5 mb-4 w-40 loginbtn border border-dark" data-dismiss="modal">Click here to Login/Signup</button>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+
+		<!-- review -->
+		<div class="modal fade" id="newReviewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-center">
+                <h3 class="modal-title text-light">Contribute a Review </h3>
+                <button type="button" class="close bg-light" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-5">
+                <!-- All input to be sent to server, and buttons must be within the 'form' tag -->
+                <form id="newreviewForm">
+                    <div class="row" text-center id="reviewBody">
+                        
+                        <label for="userReview">Review</label>
+                        <textarea id="userReview" required class="form-control form-rounded" rows="6" cols="100%"></textarea>
+                        <label for="star">Rating</label>
+                        <img src="Image/starrating.png" class="pop" value="1" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="pop" value="2" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="pop" value="3" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="pop" value="4" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="pop" value="5" onmouseover="rateIt(this)" />
+                    </div>
+					<br>
+					<div class="row" text-center id="reviewBody">
+						<label for="prices">Prices</label>
+                        <img src="Image/coin.png" class="coin" value="1" onmouseover="priceIt(this)" />
+                        <img src="Image/coin.png" class="coin" value="2" onmouseover="priceIt(this)" />
+                        <img src="Image/coin.png" class="coin" value="3" onmouseover="priceIt(this)" />
+                        <img src="Image/coin.png" class="coin" value="4" onmouseover="priceIt(this)" />
+                        <img src="Image/coin.png" class="coin" value="5" onmouseover="priceIt(this)" />
+					</div>
+                    <div class="modal-footer">
+  <button type="button" class="btn btn-primary" data-dismiss="modal" id="newSubmitReview" onClick="addReview()">Submit</button>
+                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- editcomment Modal -->
+<div class="modal fade" id="editCommentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-center">
+                <h3 class="modal-title text-light">Edit a Review</h3>
+                <button type="button" class="close bg-light" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-5">
+                <form id="commentForm">
+                    <div class="row" text-center id="editcommentBody">
+            
+                        <label for="userComments">Review</label>
+                 <textarea id="commentdesc" required class="form-control form-rounded" rows="6" cols="100%"></textarea>
+                        <label for="popcorn">Rating</label>
+                        <img src="Image/starrating.png" class="editpop" value="1" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="editpop" value="2" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="editpop" value="3" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="editpop" value="4" onmouseover="rateIt(this)" />
+                        <img src="Image/starrating.png" class="editpop" value="5" onmouseover="rateIt(this)" />	
+                    </div>
+					<br>
+					<div class="row" text-center id="editcommentBody">
+					<label for="prices">Prices</label>
+					<img src="Image/coin.png" class="editcoin" value="1" onmouseover="priceIt(this)" />
+					<img src="Image/coin.png" class="editcoin" value="2" onmouseover="priceIt(this)" />
+					<img src="Image/coin.png" class="editcoin" value="3" onmouseover="priceIt(this)" />
+					<img src="Image/coin.png" class="editcoin" value="4" onmouseover="priceIt(this)" />
+					<img src="Image/coin.png" class="editcoin" value="5" onmouseover="priceIt(this)" />
+					</div>
+                    <div class="modal-footer">
+  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="updateComment()">Submit</button>
+                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+	  <!-- Modal for review only login can access -->
+<!-- <div class="modal fade bd-example-modal-lg" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content border-0  backgroudncolor">
+      <div class="modal-header border-0  backgroudncolor">
+       
+        <button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+          X
+        </button>
+
+      </div>
+		<form id="commentForm">
+      <div class="modal-body-centered text-center">
+		  <div class="ml-4 mr-4 border border-dark" style="background-color: white;  margin-bottom: 20px;">
+         <div class="row">
+    <div class="col-4">
+		<img src="Image/puggywithchicken.png" width="100%" style="margin:auto;padding: 20px;" class=" border border-dark" alt="">
+	</div>
+    <div class="col-8 text-left">
+	  <h2 class="font-weight-bold mt-5" style="font-family: 'Agency FB'; ">Restaurant Name</h2>
+	<div class="textforreviews">
+	  <div>ADDRESSES</div>
+	  <div id="userRatings" >Rating: 
+		<img src="Image/starrating.png"  width="25px;"class="pop" value="1" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="2" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="3" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="4" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="5" onmouseover="rateIt(this)" />
+			</div>
+	   <div id="userprices">Price: 
+		<img src="Image/starrating.png" width="25px;" class="pop" value="1" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="2" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="3" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="4" onmouseover="rateIt(this)" />
+		<img src="Image/starrating.png" width="25px;" class="pop" value="5" onmouseover="rateIt(this)" />
+	</div>		
+	</div>
+	</div>
+  </div>
+      </div>
+		  <p class="text-center text01 m-1">Write down your Review's below</p>
+		  <p class="p-4"><textarea class="form-control inputboxshadow border border-dark" rows="8" style="font-size: 20px"  id="userReview">Help us improve, your review mean a lot to us!</textarea></p>
+		  <label for="" class="signuptext float-right pr-5" >500 Characters</label>
+		  <br>
+		  <br>
+		  <br>
+		  <div class="text-center">
+				<button type="button" class="btn btn-color px-5 mb-4 w-50 loginbtn border border-dark" onclick="addReview()" id="newSubmitReview" data-dismiss="modal">SUBMIT</button>
+			</div>
+  		</div>
+	</form>
+    </div>
+  </div>
+</div> -->
+  </div>
+</div>
+  </div>
+</div>
+</div>	
+</body>
+<!-- footer -->
+<div class="footer container-fluid" style="background-color: #D0B8AC;  margin-top: 10%; margin-right: 0px;" >
+
+	<div class=" float-left" > &copy; COPYRIGHT PUGGYFOOD TEMASERKPOLY - 2021</div>
+		  <span style="background-color: #D0B8AC;">
+	<div class="float-right" >Follow us @PuggySocial 
+	  <img src="Image/icons8-twitter-64.png" class="test" width="50px" height="50px" alt=""><img src="Image/icons8-instagram-200.png" class="test" width="50px;" height="50px;" alt=""><img src="Image/icons8-facebook-128.png" class="test" width="50px" height="50px" alt="">
+	  </div>	</span>
+	  
+  </div>
+</html>

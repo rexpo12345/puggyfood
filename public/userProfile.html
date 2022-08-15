@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="userprofile.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/logout.js"></script>
+<script src="js/user.js"></script>
+<script src="js/app.js"></script>
+<script src="js/checktoken.js"></script>
+<link rel="icon" href="Image/puggysmurik.gif">
+<title>  Puggy restaurant</title>
+<!-- retrive token & userdetails-->
+<script>
+
+	var firstName,lastName,userEmail,userAddress,userPassword,userPhone,userGender,userImage,userName,token;
+	token = sessionStorage.getItem("token");
+
+</script>
+
+<link rel="stylesheet" href="css/signup.css">
+<link rel="stylesheet" href="css/userprofile.css">
+<link rel="stylesheet" href="css/index.css">
+<style>
+	
+	.modal-title {
+		font-family: "Agency FB";
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 32px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+	}	
+	
+	.backgroudncolor {
+		background-color: #D0B8AC;
+	}
+	.text01 {
+		font-size: 30px;
+		font-weight: bold;
+		font-family: "Agency FB";
+		margin-top: 2px;
+		padding: 20px;
+	}
+	.profileimage {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+	}
+</style>
+ <!-- Navigation Bar -->
+ <nav class="navbar sticky-top navbar-expand-lg navbar-light bgnavcolour border border-dark">
+	<a class="navbar-brand" href="index.html"><img src="Image/cdevlogo.png" style="width: 150px; height: 100px;" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link text" href="index.html" style="color: white">HOME <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link text" href="aboutus.html" style="color: white">ABOUT US</a>
+		</li>
+		<div id="contactus">
+		<li class="nav-item" >
+		  <a class="nav-link text" href="contactus.html" style="color: white">CONTACT US</a>
+		</li>
+		</div>
+	  </ul>
+		<div id="loginmenu">
+		  <a class="nav-link text" href="Login.html" style="color: white" >LOGIN/SIGNUP</a>
+		</div>
+		<div id="logoutMenu" >
+		  <a class="nav-link text" href="userProfile.html" style="color: white" ><div id="navUser"></div></a>
+		</div>
+		
+	</div>
+  </nav>
+<body style="background-color: #FBE2E2">
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="card my-5" style="background-color: #FBE2E2">
+
+          <form class="card-body cardbody-color mt-4">
+
+            <div class="text-left registrationform">
+              MY PROFILE
+            </div>
+
+			<div class="card-deck" >
+				<div class="card" style="background-color: transparent;">
+				  <div class="form-row p-2">
+					  <div class="col" >
+						<label for="username" class="signuptext"><u>Username:</u></label>
+						  <br>
+						<input type="text" for="userName" class="userInfo" id="userName" disabled>
+					  </div>
+					  <div class="col">
+						  <label for="Name" class="signuptext"><u>Name:</u>
+						</label>
+						<br>
+						<input type="text" disabled for="firstName" class="userInfo" id="firstName">
+					  </div>
+					</div>
+					   <div class="form-row p-2">
+					  <div class="col">
+						<label for="Email" class="signuptext"><u>Email:</u></label>
+				  <br>
+						  <input type="text" disabled for="userEmail" class="userInfo" id="userEmail">
+				  </div>
+					  <div class="col">
+						  <label for="Address" class="signuptext"><u>Address:</u>
+						</label>
+						  <br>
+						  <input type="text" disabled for="userAddress" class="userInfo" id="userAddress">
+					  </div>
+					</div>
+					<div class="form-row p-2">
+					  <div class="col" >
+						<label for="username" class="signuptext"><u>Password:</u></label>
+						  <br>
+						  <input type="text" disabled for="userPassword" id="userPassword" class="userInfo">
+					  </div>
+					  <div class="col">
+						<label for="phone" class="signuptext"><u>Phone:</u>
+						</label>
+						  <br>
+						  <input type="text" disabled id="userPhone" class="userInfo">
+					  </div>
+					</div>
+					<div class="form-row p-2">
+					  <div class="col" >
+						  <label for="gender" class="signuptext"><u>Gender:</u></label>
+						  <br>
+						  <input type="text" disabled class="userInfo" id="userGender">
+					  </div>
+					  <div class="row text-center">
+						<div class="col-md-6" >
+							<br>
+						<div class="text-center">
+							<button type="button" class="btn btn-color px-5 mb-2 w-40 pr-3 btnEdit border border-dark" onclick="location.href= 'edituserProfile.html'">EDIT</button>
+						</div>
+					</div>
+						<div class="col-md-6">
+							<br>
+						<div class="text-right">
+							<button type="button" class="btn btn-color px-5 mb-2 w-40  btnDel border border-dark" data-toggle="modal" data-target="#deleteModal">DELETE</button></div>
+					   </div>
+					</div>
+				</div>
+			</div>
+			<div class="card" style="background-color: transparent;">
+					<div class="text-center">
+						<div id="imagtable01"></div>
+					
+				  <div class="text-center ">
+					  <button type="button" class="btn btn-color px-5 mb-2 w-40 border border-dark btnLogout" data-toggle="modal" data-target="#exampleModalCenter">Logout</button></div>
+				  </div>
+				</div>
+			  </div>
+			<!-- Modal for logout -->
+			<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content border-0  backgroudncolor">
+				  <div class="modal-header border-0  backgroudncolor">
+
+					<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+					  X
+					</button>
+				  </div>
+				  <div class="modal-body-centered text-center">
+					  <div class="ml-5 mr-5 text01" style="background-color: white;  margin-bottom: 20px;">
+					<div>ARE YOU SURE YOU WANT TO LOGOUT</div>
+					 <img src="Image/afterLogout.png" width="300px;" alt="">
+				  </div>
+					  <div class="text-center">
+							<button type="button" class="btn btn-color px-5 mb-4 w-40  btnEdit border border-dark" data-dismiss="modal">CANCEL</button>
+
+							 <button type="button" onclick="logoutMe()" class="btn btn-color px-5 mb-4 w-40  btnDel border border-dark" >SURE</button>
+						</div>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<!-- Modal for delete account -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle border-0 " aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content border-0  backgroudncolor">
+			  <div class="modal-header border-0  backgroudncolor">
+
+				<button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+				  X
+				</button>
+
+			  </div>
+
+			  <div class="modal-body-centered text-center">
+				  <div class="ml-4 mr-4 text01" style="background-color: white;  margin-bottom: 20px;">
+				<div>ARE YOU SURE, YOU WANT TO DELETE YOUR ACCOUNT. DATA WILL BE COMPLETELY REMOVE AFTER YOU CLICK "<span style="color: red">SURE</span>"</div>
+				 <img src="Image/deletedaccountpug.png" width="300px;" alt="">
+			  </div>
+				  <div class="text-center">
+						<button type="submit" class="btn btn-color px-5 mb-4 w-40   btnEdit border border-dark" data-dismiss="modal">CANCEL</button>
+
+						 <button type="button" class="btn btn-color px-5 mb-4  w-40  btnDel border border-dark" onclick="deleteUser()">SURE</button>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+       
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+<!-- footer -->
+<div class="footer container-fluid" style="background-color: #D0B8AC;  margin-top: 10%; margin-right: 0px;" >
+
+	<div class=" float-left" > &copy; COPYRIGHT PUGGYFOOD TEMASERKPOLY - 2021</div>
+		  <span style="background-color: #D0B8AC;">
+	<div class="float-right" >Follow us @PuggySocial 
+	  <img src="Image/icons8-twitter-64.png" class="test" width="50px" height="50px" alt=""><img src="Image/icons8-instagram-200.png" class="test" width="50px;" height="50px;" alt=""><img src="Image/icons8-facebook-128.png" class="test" width="50px" height="50px" alt="">
+	  </div>	</span>
+	  
+  </div>
+</html>

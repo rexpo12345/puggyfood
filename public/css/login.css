@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+.btn-color{
+  background-color: #FBE2E2;
+  color: #fff;
+  border-radius: 20px;
+  border: thick #000000;
+  
+}
+
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+.card{
+	border: 0;
+	border-style: solid;
+}
+.cardbody-color{
+  background-color: #D0B8AC;
+  border-radius: 25px;
+  box-shadow:5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.img-thumbnail {
+  border: 0px;
+  background-color: transparent;
+  box-shadow:5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  padding: 0px;
+}
+
+
+.logintext {
+	font-family: "Agency FB";
+	font-size: 25px;
+	margin-bottom: 2px;
+	color: #FFFFFF;
+	text-decoration: bold;
+	text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+.loginbtn {
+	font-size: 25px;
+	font-weight: 1000;
+	font-family: "Agency FB";
+	color: #000000;
+	text-decoration: bold;
+	box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+}
+.loginbtn:hover {
+	color: #FBE2E2;
+	background-color:#000000; 
+}
+
+.inputboxshadow {
+	box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+    
+	border-style: solid;
+}
+
+.signuptext{
+	color: #FFFFFF;
+	text-decoration: underline;
+	font-family: "Agency FB";
+	font-size: 30px;
+	text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+a {
+	color: #ffffff;
+	
+}
+
+a:hover {
+	color: #FBE2E2;
+	background-color:#D0B8AC;
+}
