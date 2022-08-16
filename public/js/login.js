@@ -20,7 +20,7 @@ function loginMe(){
                 sessionStorage.setItem("_id", _id);
                 
             } else {
-                 alert("Failed to Sign in. Please try again later.");
+                 $('#incorrect').modal('show');
             } 
         }
        
