@@ -96,7 +96,7 @@ function createUser() {
   
 
 			alert("User registered!")
-      window. location. replace("http://127.0.0.1:8080/Login.html"); 
+      window. location. replace("ec2-34-227-58-112.compute-1.amazonaws.com:8080/Login.html"); 
         // fetch all comments again so that the web page can have updated comments.   
       
     };
