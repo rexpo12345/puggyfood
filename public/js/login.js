@@ -13,7 +13,7 @@ function loginMe(){
         console.log(token.result);
         
             if (token.result != "invalid") {
-                window. location. replace("http://127.0.0.1:8080/userProfile.html");
+                window. location. replace("http://ec2-34-227-58-112.compute-1.amazonaws.com:8080/userProfile.html");
                 sessionStorage.setItem("token", token.result);
                 sessionStorage.setItem("userName", userName);
                 sessionStorage.setItem("userPassword", userPassword);
