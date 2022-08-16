@@ -95,7 +95,7 @@ function createUser() {
     //input validation 
   
 
-			alert("User registered!")
+     alert("User registered!")
       window. location. replace("ec2-34-227-58-112.compute-1.amazonaws.com:8080/Login.html"); 
         // fetch all comments again so that the web page can have updated comments.   
       
