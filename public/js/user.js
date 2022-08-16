@@ -54,7 +54,7 @@ function deleteUser(){
       sessionStorage.removeItem("userName");
       sessionStorage.removeItem("userPassword");
       sessionStorage.removeItem("_id");
-      window. location. replace("http://127.0.0.1:8080");
+      window. location. replace("http://ec2-34-227-58-112.compute-1.amazonaws.com:8080");
   
   }
   console.log(id);
