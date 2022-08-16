@@ -46,7 +46,7 @@ function update(){
     updateUser.setRequestHeader("Content-Type", "application/json");
     updateUser.onload=function (){
 
-        window. location. replace("http://ec2-34-227-58-112.compute-1.amazonaws.com:8080/userProfile.html");
+        window. location. replace("http://ec2-44-208-133-128.compute-1.amazonaws.com:8080/userProfile.html");
        
     }
     
@@ -78,7 +78,7 @@ function updateUserpassword(){
 
     if( (newpassword == currentpassword) && (userPassword == confimpassword)){
         updateUser.onload=function (){
-            window. location. replace("http://ec2-34-227-58-112.compute-1.amazonaws.com:8080/userProfile.html");
+            window. location. replace("http://ec2-44-208-133-128.compute-1.amazonaws.com:8080/userProfile.html");
             sessionStorage.setItem("userPassword", userPassword);
         }
         
