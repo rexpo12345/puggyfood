@@ -67,5 +67,5 @@ app.route('/contactform/:_id').put(contactformControllers.updateContactform) // 
 app.route('/contactform/:_id').delete(contactformControllers.deleteContactform); // activate the deleteComment method if the route is DELETE(method) /comments/:id
 app.route('/usernameemailcontactform/:_userProfileid').get(contactformControllers.getUsernameEmailContactform); // activate the deleteComment method if the route is DELETE(method) /comments/:id
 
-app.listen(8080,"ec2-34-227-58-112.compute-1.amazonaws.com"); // start the nodejs to be listening for incoming request @ port 8080
-console.log("web server running @ec2-34-227-58-112.compute-1.amazonaws.com:8080"); // output to console
+app.listen(8080,"ec2-44-208-133-128.compute-1.amazonaws.com"); // start the nodejs to be listening for incoming request @ port 8080
+console.log("web server running @ec2-44-208-133-128.compute-1.amazonaws.com"); // output to console
