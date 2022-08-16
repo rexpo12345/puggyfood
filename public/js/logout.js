@@ -3,5 +3,5 @@ function logoutMe() {
     sessionStorage.removeItem("userName");
     sessionStorage.removeItem("_id");
     sessionStorage.removeItem("userPassword");
-    window. location. replace("http://ec2-34-227-58-112.compute-1.amazonaws.com:8080");
+    window. location. replace("http://ec2-44-208-133-128.compute-1.amazonaws.com:8080");
 }
