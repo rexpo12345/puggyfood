@@ -20,10 +20,11 @@ function showRestaurantDetails() {
         restaurantPrices = document.getElementById("price").textContent = "Prices: " + restaurant_array[0].restaurantPrices;
         restaurantNoreviews = document.getElementById("noreview").textContent = "Reviews: " + restaurant_array[0].restaurantNoreviews;    
         console.log(restaurant_array);
-         
-
+        restaurantname = restaurant_array[0].restaurantName;
+	sessionStorage.setItem("restname",restaurantname = restaurant_array[0].restaurantName;)
         };
     request.send();
+    
 
 }
 $(document).ready(function (){
@@ -367,8 +368,8 @@ function notification(){
     notification.open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
     notification.setRequestHeader("Content-Type", "application/json");
     
-    restaurantname = "test";
-    username = sessionStorage.getItem("userName")
+    restaurantname = sessionStorage.getItem("restname");
+    username = sessionStorage.getItem("userName");
     reviewmessage = document.getElementById("userReview").value;
 
     var payload = {restaurantname:restaurantname,username:username,reviewmessage:reviewmessage};
