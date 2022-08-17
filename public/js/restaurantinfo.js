@@ -276,7 +276,7 @@ function showRestaurantDetails() {
         restaurant_array = JSON.parse(request.responseText);
         restaurantImg = document.getElementById("restaurantImg").src = restaurant_array[0].restaurantImg;
         restName = document.getElementById("restname").textContent = "Follow them @" + restaurant_array[0].restaurantName;
-	sessionStorage.setItem("restname",restName);
+	sessionStorage.setItem("restname",restaurant_array[0].restaurantName);
         restaurantName = document.getElementById("restaurantName").textContent = restaurant_array[0].restaurantName;
         restaurantDescription = document.getElementById("testDesc").textContent = restaurant_array[0].restaurantDescription;
         restaurantRating = document.getElementById("rating").textContent = "Ratings: " + restaurant_array[0].restaurantRating;
