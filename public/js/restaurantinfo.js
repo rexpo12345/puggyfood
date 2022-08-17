@@ -364,8 +364,8 @@ function notification(){
     
     var notification = new XMLHttpRequest();
     console.log("please work")
-    notification .open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
-    notification .setRequestHeader("Content-Type", "application/json");
+    notification.open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
+    notification.setRequestHeader("Content-Type", "application/json");
     
     restaurantname = "test";
     username = sessionStorage.getItem("userName")
@@ -373,7 +373,7 @@ function notification(){
 
     var payload = {restaurantname:restaurantname,username:username,reviewmessage:reviewmessage};
     console.log(payload)
-    updateUser.send(JSON.stringify(payload));
+    notification.send(JSON.stringify(payload));
 
 }
 
