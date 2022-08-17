@@ -360,6 +360,23 @@ function addReview() {
 	
 }
 
+function notification(){
+
+    var notification = new XMLHttpRequest();
+    console.log("please work")
+    notification .open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
+    notification .setRequestHeader("Content-Type", "application/json");
+    
+    restaurantname = restaurant_array[0].name;
+    username = profile[0].userName;
+    reviewmessage = document.getElementById("userReview").value;
+
+    var payload = {restaurantname:restaurantname,username:username,reviewmessage:reviewmessage};
+    console.log(payload)
+    updateUser.send(JSON.stringify(payload));
+
+}
+
 
 function updateComment(){
  
