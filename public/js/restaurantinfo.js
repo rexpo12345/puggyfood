@@ -368,7 +368,7 @@ function notification(){
     notification.setRequestHeader("Content-Type", "application/json");
     
     restaurantname = restaurant_array[0].name;
-    username = profile[0].userName;
+    username = restaurant_array[0].userName;
     reviewmessage = document.getElementById("userReview").value;
 
     var payload = {restaurantname:restaurantname,username:username,reviewmessage:reviewmessage};
