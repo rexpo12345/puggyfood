@@ -364,8 +364,8 @@ function notification(){
 
     var notification = new XMLHttpRequest();
     console.log("please work")
-    notification .open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
-    notification .setRequestHeader("Content-Type", "application/json");
+    notification.open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
+    notification.setRequestHeader("Content-Type", "application/json");
     
     restaurantname = restaurant_array[0].name;
     username = profile[0].userName;
