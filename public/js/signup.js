@@ -96,7 +96,7 @@ function createUser() {
   
 
      alert("User registered!")
-     window. location. replace("http://ec2-44-208-133-128.compute-1.amazonaws.com:8080/Login.html"); 
+     window. location. replace("http://ec2-18-207-43-190.compute-1.amazonaws.com:8080/Login.html"); 
       
     };
    
