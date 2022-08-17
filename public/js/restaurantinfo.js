@@ -20,8 +20,7 @@ function showRestaurantDetails() {
         restaurantPrices = document.getElementById("price").textContent = "Prices: " + restaurant_array[0].restaurantPrices;
         restaurantNoreviews = document.getElementById("noreview").textContent = "Reviews: " + restaurant_array[0].restaurantNoreviews;    
         console.log(restaurant_array);
-        restaurantname = restaurant_array[0].restaurantName;
-	sessionStorage.setItem("restname",restaurantname = restaurant_array[0].restaurantName;)
+       
         };
     request.send();
     
@@ -277,6 +276,7 @@ function showRestaurantDetails() {
         restaurant_array = JSON.parse(request.responseText);
         restaurantImg = document.getElementById("restaurantImg").src = restaurant_array[0].restaurantImg;
         restName = document.getElementById("restname").textContent = "Follow them @" + restaurant_array[0].restaurantName;
+	sessionStorage.setItem("restname",restName);
         restaurantName = document.getElementById("restaurantName").textContent = restaurant_array[0].restaurantName;
         restaurantDescription = document.getElementById("testDesc").textContent = restaurant_array[0].restaurantDescription;
         restaurantRating = document.getElementById("rating").textContent = "Ratings: " + restaurant_array[0].restaurantRating;
