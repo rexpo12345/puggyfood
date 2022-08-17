@@ -361,14 +361,24 @@ function addReview() {
 }
 
 function notification(){
+    var item = sessionStorage.getItem("restaurantid")
+    currentIndex = item;
+    restaurant_url = "/restaurantdetailsandinfo/"+ item;
+    var request = new XMLHttpRequest();
+    request.open('GET', restaurant_url, true);
+    request.onload = function (){
+        restaurant_array = JSON.parse(request.responseText);
+        restaurantName = document.getElementById("restaurantName").textContent = restaurant_array[0].restaurantName;
+        console.log(restaurant_array);      
 
+     };	
     var notification = new XMLHttpRequest();
     console.log("please work")
-    notification.open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
-    notification.setRequestHeader("Content-Type", "application/json");
+    notification .open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
+    notification .setRequestHeader("Content-Type", "application/json");
     
-    restaurantname = restaurant_array[0].name;
-    username = restaurant_array[0].userName;
+    restaurantname = restaurantName;
+    username = profile[0].userName;
     reviewmessage = document.getElementById("userReview").value;
 
     var payload = {restaurantname:restaurantname,username:username,reviewmessage:reviewmessage};
@@ -376,7 +386,6 @@ function notification(){
     updateUser.send(JSON.stringify(payload));
 
 }
-
 
 function updateComment(){
  
