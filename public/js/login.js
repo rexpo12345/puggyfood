@@ -13,7 +13,7 @@ function loginMe(){
         console.log(token.result);
         
             if (token.result != "invalid") {
-                window. location. replace("http://ec2-44-208-133-128.compute-1.amazonaws.com/userProfile.html");
+                window. location. replace("http://ec2-18-207-43-190.compute-1.amazonaws.com/userProfile.html");
                 sessionStorage.setItem("token", token.result);
                 sessionStorage.setItem("userName", userName);
                 sessionStorage.setItem("userPassword", userPassword);
