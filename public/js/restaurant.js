@@ -155,7 +155,7 @@ function intorestinfo(click_id) {
     request.onload = function (){
         restaurant_array = JSON.parse(request.responseText); 
         console.log(restaurant_array);
-        window. location. replace("http://ec2-34-227-58-112.compute-1.amazonaws.com:8080/restaurant.html");    
+        window. location. replace("http://ec2-18-207-43-190.compute-1.amazonaws.com:8080/restaurant.html");    
 
         };
     request.send();
