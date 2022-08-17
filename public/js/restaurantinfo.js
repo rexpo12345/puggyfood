@@ -358,20 +358,6 @@ function addReview() {
     // Convert the data in review object to JSON format before sending to the server.
     postReview.send(JSON.stringify(review));
 	
-    var sendreview= new XMLHttpRequest();
-
-    sendreview.open("POST", "https://pxwtkpb0mh.execute-api.us-east-1.amazonaws.com/reviewnotification/user",true);
-    sendreview.setRequestHeader("Content-Type", "application/json");
-    sendreview.onload = function() {
-    console.log("test");
-    var restaurantName = document.getElementById("restaurantName").textContent = restaurant_array[0].restaurantName;
-    var username = profile[0].userName;
-    var review = document.getElementById("userReview").value;
-    
-    var payload = {restaurantname:restaurantName,username:username,reviewmessage:review};
-    console.log(payload)
-    sendreview.send(JSON.stringify(payload));
-   }
 }
 
 
