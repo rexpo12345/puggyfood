@@ -6,7 +6,7 @@ function pollyTextToSpeech() {
 
     elemPlayButton.addEventListener("click", function pollyTextToSpeech() {
     if (elemVoice.value == "english") {
-        var voice = "Matthew"
+        var voice = "Nicole"
     }
 
     if (elemVoice.value == "chinese") {
