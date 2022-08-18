@@ -369,10 +369,11 @@ function notification(){
     notification.setRequestHeader("Content-Type", "application/json");
     
     restaurantname = sessionStorage.getItem("restname");
+    userid = sessionStorage.getItem("_id");
     username = sessionStorage.getItem("userName");
     reviewmessage = document.getElementById("userReview").value;
 
-    var payload = {restaurantname:restaurantname,username:username,reviewmessage:reviewmessage};
+    var payload = {restaurantname:restaurantname,userid:userid,username:username,reviewmessage:reviewmessage};
     console.log(payload)
     notification.send(JSON.stringify(payload));
 
