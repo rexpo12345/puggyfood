@@ -1,5 +1,5 @@
 let element = document.getElementsByName("aboutus");
-const languageSelector = document.querySelector("#selectLan");
+const languageSelector = document.getElementById("selectLan");
 
 function translateAbout() {
     var language = languageSelector.value;
