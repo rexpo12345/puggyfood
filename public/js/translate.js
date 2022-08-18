@@ -1,4 +1,4 @@
-const element = document.getElementsByName("aboutus");
+let element = document.getElementsByName("aboutus");
 const languageSelector = document.querySelector("#selectLan");
 
 function translateAbout() {
