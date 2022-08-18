@@ -8,6 +8,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <script src="js/checktoken.js"></script>
+<script src="js/translate.js"></script>
 <link rel="stylesheet" href="css/signup.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel="icon" href="Image/puggysmurik.gif">
@@ -70,7 +71,15 @@
   <div class="row">
     <div class="col-8">
 	<h1 style="font-family: 'Agency FB';font-weight: 1000;font-size: 50px;"><u class="font-weight-bold font">WHO ARE WE ?</u></h1>
-	<p class="fontpara">We are a group of puggy's that gets restaurant
+	  <--! Transalte -->
+	 <div>
+            <select id="selectLan">
+                <option value="english">English</option>
+                <option value="chinese">Chinese</option>
+            </select>
+            <button id="translate" onClick="translateAbout()">Translate</button>
+        </div>   
+	<p class="fontpara" name="aboutus">We are a group of puggy's that gets restaurant
 		<br>
 		approver before listing on this site and allowing
 		<br>
@@ -89,7 +98,7 @@
 	</div>
     <div class="col-8 text-right">
 	  <h1 style="font-family: 'Agency FB';font-weight: 1000;font-size: 50px;"><u class="font-weight-bold">WHAT DOES THIS SITE DO ?</u></h1>
-	  <p class="fontpara">We allow user to create an account on our website
+	  <p class="fontpara" name="aboutus">We allow user to create an account on our website
 		<br>
 		for free, They will be able to give reviews to 
 		<br>
@@ -100,7 +109,7 @@
 	  <div class="row">
     <div class="col-8">
 		<h1 style="font-family: 'Agency FB';font-weight: 1000;font-size: 50px;"><u class="font-weight-bold">HOW DID WE PUBLISH THIS</u></h1>
-		<p class="fontpara">
+		<p class="fontpara" name="aboutus">
 		In 2021, We did this allow more users to have 
 		<br>
 		understanding of food and this site will brings 
