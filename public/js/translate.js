@@ -1,7 +1,7 @@
 
 
 function translateAbout() {
-    let element = document.getElementsByName("#aboutustext");
+    let element = document.getElementById("#aboutus");
     let language = document.querySelector("#transaltion").value;
     console.log(language);
     var request = new XMLHttpRequest();
