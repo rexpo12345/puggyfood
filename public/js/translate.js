@@ -2,7 +2,7 @@
 
 function translateAbout() {
     let element = document.getElementsByName("aboutus");
-    let language = document.querySelector("#transaltion");
+    let language = document.querySelector("#transaltion").value;
     console.log(language);
     var request = new XMLHttpRequest();
     request.open("POST", "https://7najbc6c0i.execute-api.us-east-1.amazonaws.com/default/translate", true); 
