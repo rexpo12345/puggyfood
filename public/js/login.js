@@ -4,7 +4,7 @@ function loginMe(){
 
     var loginUser = new XMLHttpRequest();
 
-    loginUser.open("POST", " ec2-18-207-43-190.compute-1.amazonaws.com:8080/login",true);
+    loginUser.open("POST", "/login",true);
     
     loginUser.setRequestHeader("Content-Type", "application/json");
     loginUser.onload=function (){
