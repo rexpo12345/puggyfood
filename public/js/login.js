@@ -1,5 +1,3 @@
-
-
 function loginMe(){
 
     var loginUser = new XMLHttpRequest();
