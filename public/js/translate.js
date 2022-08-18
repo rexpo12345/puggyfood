@@ -9,6 +9,7 @@ function translateAbout() {
     request.setRequestHeader("Content-Type", "application/json");
     request.onload = function () {
         console.log("translated");
+        console.log(JSON.parse(request.responseText));
         element.innerHTML = JSON.parse(request.responseText);
     };
     request.send(JSON.stringify({language:language}));
