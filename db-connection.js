@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
 
-    host:'database-1.c2pd8ymjjeoi.us-east-1.rds.amazonaws.com',
+    host:'puggydatabase.cjvzplmiscao.us-east-1.rds.amazonaws.com',
 
     port: '3306',
 
