@@ -4,7 +4,7 @@ function loginMe(){
 
     var loginUser = new XMLHttpRequest();
 
-    loginUser.open("POST", "https://puggy-auth.auth.us-east-1.amazoncognito.com/login?client_id=97v2lllemim96fti8emqcbr3a&response_type=code&scope=email+openid&redirect_uri=ec2-18-207-43-190.compute-1.amazonaws.com:8080",true);
+    loginUser.open("GET", "https://puggy-auth.auth.us-east-1.amazoncognito.com/login?client_id=97v2lllemim96fti8emqcbr3a&response_type=code&scope=email+openid&redirect_uri=ec2-18-207-43-190.compute-1.amazonaws.com:8080",true);
     
     loginUser.setRequestHeader("Content-Type", "application/json");
     loginUser.onload=function (){
