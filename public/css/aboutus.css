@@ -6,3 +6,11 @@
 	font-weight: 1000;
 	
 }
+
+.btn-color1{
+  background-color: #00FFFF;
+  color: #000;
+  border-radius: 20px;
+  border: thick #000000;
+  
+}
