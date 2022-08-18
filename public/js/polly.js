@@ -14,7 +14,7 @@ function pollyTextToSpeech() {
     }
       
     let url = "https://h3qb54enf9.execute-api.us-east-1.amazonaws.com/default/polly";
-    url += "?voice=" + encodeURIComponent(elemVoice.value);
+    url += "?voice=" + encodeURIComponent(voice);
     url += "&text=" + encodeURIComponent(elemText.textContent);
 
     const elemAudio = document.createElement("AUDIO");
