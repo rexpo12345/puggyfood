@@ -5,12 +5,12 @@ function pollyTextToSpeech() {
     const elemText = document.querySelector("#aboutus");
 
     elemPlayButton.addEventListener("click", function pollyTextToSpeech() {
-      if (elemVoice.value == "english") {
-      var voice = "Matthew"
+    if (elemVoice.value == "english") {
+        var voice = "Matthew"
     }
 
     if (elemVoice.value == "chinese") {
-      var voice = "Zhiyu"
+        var voice = "Zhiyu"
     }
       
     let url = "https://h3qb54enf9.execute-api.us-east-1.amazonaws.com/default/polly";
