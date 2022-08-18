@@ -1,14 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
-.font {
-	font-family: "Agency FB";
-	font-size: 500px;
-	font-weight: 1000;
-	
-}
 
 .btn-color1{
-  background-color: #00FFFF;
+  background-color: #AA6C39;
   color: #000;
   border-radius: 20px;
   border: thick #000000;
