@@ -18,10 +18,8 @@ function pollyTextToSpeech() {
     url += "&text=" + encodeURIComponent(elemText.textContent);
         
     const elemAudio = document.createElement("AUDIO");
-    if (elemAudio.childNodes.length <= 0){   
     elemAudio.style.display = "none";
     document.body.appendChild(elemAudio);
-    }
     elemAudio.controls = true;
     elemAudio.src = url;
     elemAudio.play();
