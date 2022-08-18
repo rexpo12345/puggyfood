@@ -1,7 +1,7 @@
 (function() {
   const elemPlayButton = document.querySelector("#play-button")
   const elemVoice = document.querySelector("#transaltion");
-  const elemText = document.getElementById("aboutus");
+  const elemText = document.querySelector("#aboutus");
 
   elemPlayButton.addEventListener("click", function() {
     if (elemVoice.value == "english") {
